@@ -126,12 +126,34 @@ body {
 .shimmer {
   background: linear-gradient(
     90deg,
-    rgba(14, 116, 144, 0.04) 25%,
-    rgba(14, 116, 144, 0.08) 50%,
-    rgba(14, 116, 144, 0.04) 75%
+    rgba(14, 116, 144, 0.00) 25%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(14, 116, 144, 0.00) 75%
   );
   background-size: 200% 100%;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* ── Smooth Floating Animation ── */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ── Highlight Pulse Animation ── */
+@keyframes highlight-pulse {
+  0% { transform: scale(1); box-shadow: 0 4px 14px rgba(20, 184, 166, 0.3); }
+  50% { transform: scale(1.02); box-shadow: 0 8px 30px rgba(20, 184, 166, 0.6); }
+  100% { transform: scale(1); box-shadow: 0 4px 14px rgba(20, 184, 166, 0.3); }
+}
+
+.animate-highlight-pulse {
+  animation: highlight-pulse 2.5s infinite ease-in-out;
 }
 
 /* ── Footer Gradient Fade ── */

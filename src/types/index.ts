@@ -4,6 +4,7 @@ export interface LinkItem {
   url: string;
   icon: string;
   description?: string;
+  logoUrl?: string;
 }
 
 export interface ProfileData {
@@ -11,4 +12,5 @@ export interface ProfileData {
   subtitle: string;
   credential: string;
   avatarUrl: string;
+  logoUrl?: string;
 }

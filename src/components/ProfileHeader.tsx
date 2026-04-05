@@ -8,26 +8,38 @@ interface ProfileHeaderProps {
 
 export function ProfileHeader({ profile }: ProfileHeaderProps) {
   return (
-    <header className="flex flex-col items-center gap-4 pt-12 pb-2 animate-fade-up">
-      {/* Avatar */}
-      <div className="relative">
-        {/* Outer glow ring */}
-        <div className="absolute -inset-1.5 rounded-full bg-gradient-to-br from-primary-light/40 via-accent/30 to-mint/40 blur-sm" />
+    <header className="flex flex-col items-center gap-3 pt-10 pb-2 animate-fade-up">
+      {/* ─── Avatar Clássico Premium ─── */}
+      <div className="relative flex justify-center mt-2 w-[168px] h-[168px] animate-float">
+        {/* Efeito Glow Ambiente Traseiro */}
+        <div
+          className="absolute inset-0 rounded-full bg-gradient-to-br from-primary-light/50 via-accent/30 to-mint/50 blur-xl scale-110 pointer-events-none"
+          style={{ zIndex: 0 }}
+        />
 
-        {/* Avatar container */}
-        <div className="avatar-ring relative h-28 w-28 overflow-hidden rounded-full border-[3px] border-white/90 shadow-[var(--shadow-avatar)]">
+        {/* Círculo Base e Borda do Avatar */}
+        <div 
+          className="relative h-[168px] w-[168px] rounded-full border-[3px] border-white/95 shadow-[var(--shadow-avatar)] overflow-hidden bg-gradient-to-tr from-primary/10 to-accent/5"
+          style={{ zIndex: 10 }}
+        >
+          {/* Fundo Extra para a Foto Transparente */}
+          <div className="absolute inset-0 bg-[#e6f4f1] pointer-events-none" />
+
           <Image
             src={profile.avatarUrl}
             alt={`Foto de ${profile.name}`}
             fill
-            className="object-cover"
-            sizes="112px"
-            preload
+            className="object-cover object-top"
+            sizes="168px"
+            priority
           />
         </div>
 
-        {/* Online / verified badge */}
-        <div className="absolute right-0 bottom-1 flex h-7 w-7 items-center justify-center rounded-full border-[2.5px] border-white bg-gradient-to-br from-accent to-primary shadow-sm">
+        {/* Selo de Verificação */}
+        <div
+          className="absolute flex h-8 w-8 items-center justify-center rounded-full border-[2.5px] border-white bg-gradient-to-br from-accent to-primary shadow-md"
+          style={{ bottom: "4px", right: "2px", zIndex: 30 }}
+        >
           <svg
             width="14"
             height="14"
@@ -46,8 +58,8 @@ export function ProfileHeader({ profile }: ProfileHeaderProps) {
         </div>
       </div>
 
-      {/* Name and info */}
-      <div className="flex flex-col items-center gap-1 text-center">
+      {/* Identificação */}
+      <div className="flex flex-col items-center gap-1 text-center mt-3">
         <h1 className="text-xl font-bold tracking-tight text-text-primary">
           {profile.name}
         </h1>
